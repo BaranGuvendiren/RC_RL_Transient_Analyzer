@@ -4,7 +4,8 @@
 #include "circuit_math.h"
 #include "circuit_io.h"
 
-char *export_rc_charging_to_csv(double v_source, double tau, int steps) {
+const char *export_rc_charging_to_csv(double v_source, double tau, int steps) {
+    if (steps <= 0) return NULL;
     FILE *fptr = fopen("output/rc_charging.csv", "w");
     if (fptr == NULL) return NULL;
 
@@ -23,7 +24,8 @@ char *export_rc_charging_to_csv(double v_source, double tau, int steps) {
     return "output/rc_charging.csv";
 }
 
-char *export_rc_discharging_to_csv(double v_initial, double tau, int steps) {
+const char *export_rc_discharging_to_csv(double v_initial, double tau, int steps) {
+    if (steps <= 0) return NULL;
     FILE *fptr = fopen("output/rc_discharging.csv", "w");
     if (fptr == NULL) return NULL;
 
@@ -42,7 +44,8 @@ char *export_rc_discharging_to_csv(double v_initial, double tau, int steps) {
     return "output/rc_discharging.csv";
 }
 
-char *export_rl_charging_to_csv(double i_max, double tau, int steps) {
+const char *export_rl_charging_to_csv(double i_max, double tau, int steps) {
+    if (steps <= 0) return NULL;
     FILE *fptr = fopen("output/rl_charging.csv", "w");
     if (fptr == NULL) return NULL;
 
@@ -61,7 +64,8 @@ char *export_rl_charging_to_csv(double i_max, double tau, int steps) {
     return "output/rl_charging.csv";
 }
 
-char *export_rl_discharging_to_csv(double i_initial, double tau, int steps) {
+const char *export_rl_discharging_to_csv(double i_initial, double tau, int steps) {
+    if (steps <= 0) return NULL;
     FILE *fptr = fopen("output/rl_discharging.csv", "w");
     if (fptr == NULL) return NULL;
 
