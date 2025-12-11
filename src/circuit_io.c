@@ -23,7 +23,7 @@ char *export_rc_charging_to_csv(double v_source, double tau, int steps) {
     return "output/rc_charging.csv";
 }
 
-char *export_rc_discharging_to_csv(double v_source, double tau, int steps) {
+char *export_rc_discharging_to_csv(double v_initial, double tau, int steps) {
     FILE *fptr = fopen("output/rc_discharging.csv", "w");
     if (fptr == NULL) return NULL;
 
@@ -34,7 +34,7 @@ char *export_rc_discharging_to_csv(double v_source, double tau, int steps) {
     double t = 0.0;
     
     for (int i = 0; i <= steps; i++) {
-        fprintf(fptr, "%f,%f\n", t, calculate_rc_discharge(v_source, t, tau));
+        fprintf(fptr, "%f,%f\n", t, calculate_rc_discharge(v_initial, t, tau));
         t += time_step;
     }
 

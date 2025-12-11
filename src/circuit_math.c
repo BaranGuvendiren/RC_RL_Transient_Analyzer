@@ -13,21 +13,21 @@ double calculate_rc_tau(double r, double c) {
 }
 
 double calculate_rc_charge(double v_source, double t, double tau) {
-    if (tau <= 0) return NAN;
+    if (tau <= 0 || t < 0) return NAN;
     return v_source * (1.0 - exp(-t / tau));
 }
 
-double calculate_rc_discharge(double v_source, double t, double tau) {
-    if (tau <= 0) return NAN;
-    return v_source * exp(-t / tau);
+double calculate_rc_discharge(double v_initial, double t, double tau) {
+    if (tau <= 0 || t < 0) return NAN;
+    return v_initial * exp(-t / tau);
 }
 
 double calculate_rl_charge(double i_max, double t, double tau) {
-    if (tau <= 0) return NAN;
+    if (tau <= 0 || t < 0) return NAN;
     return i_max * (1.0 - exp(-t / tau));
 }
 
 double calculate_rl_discharge(double i_initial, double t, double tau) {
-    if (tau <= 0) return NAN;
+    if (tau <= 0 || t < 0) return NAN;
     return i_initial * exp(-t / tau);
 }

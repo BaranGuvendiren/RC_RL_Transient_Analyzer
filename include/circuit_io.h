@@ -2,7 +2,7 @@
 #define CIRCUIT_IO
 
 char *export_rc_charging_to_csv(double v_source, double tau, int steps);
-char *export_rc_discharging_to_csv(double v_source, double tau, int steps);
+char *export_rc_discharging_to_csv(double v_initial, double tau, int steps);
 
 char *export_rl_charging_to_csv(double i_max, double tau, int steps);
 char *export_rl_discharging_to_csv(double i_initial, double tau, int steps);
